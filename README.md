@@ -1,6 +1,6 @@
 # OpenCLI Skill
 
-English | [中文](#中文说明)
+English | [中文](./README.zh-CN.md)
 
 An agent skill for working with [OpenCLI](https://github.com/jackwener/opencli): command discovery, browser-login reuse, desktop-app adapters, downloads, troubleshooting, and adapter-generation workflows.
 
