@@ -14,7 +14,7 @@
       <stop offset="0.5" stop-color="#22C55E"/>
       <stop offset="1" stop-color="#F59E0B"/>
     </linearGradient>
-    <filter id="blur" x="720" y="90" width="420" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="blur" x="760" y="120" width="360" height="360" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feGaussianBlur stdDeviation="60"/>
     </filter>
   </defs>
@@ -28,37 +28,26 @@
     <text x="226" y="124" fill="#7DD3FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">agent skill</text>
   </g>
 
-  <text x="92" y="224" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="64" font-weight="700">OpenCLI Skill</text>
-  <text x="92" y="284" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28">Agent-first workflows for websites, desktop apps, downloads, and OpenClaw.</text>
+  <text x="92" y="224" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="68" font-weight="700">OpenCLI Skill</text>
+  <text x="92" y="284" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28">Agent-first workflows for websites, desktop apps, and OpenClaw.</text>
 
   <g>
-    <rect x="92" y="344" width="318" height="56" rx="18" fill="#0F766E" fill-opacity="0.28" stroke="#2DD4BF" stroke-opacity="0.4"/>
+    <rect x="92" y="344" width="330" height="56" rx="18" fill="#0F766E" fill-opacity="0.28" stroke="#2DD4BF" stroke-opacity="0.4"/>
     <text x="122" y="379" fill="#CCFBF1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24">Read-first command discovery</text>
   </g>
   <g>
-    <rect x="430" y="344" width="250" height="56" rx="18" fill="#1E3A8A" fill-opacity="0.28" stroke="#60A5FA" stroke-opacity="0.38"/>
-    <text x="462" y="379" fill="#DBEAFE" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24">Chrome login reuse</text>
+    <rect x="446" y="344" width="254" height="56" rx="18" fill="#1E3A8A" fill-opacity="0.28" stroke="#60A5FA" stroke-opacity="0.38"/>
+    <text x="478" y="379" fill="#DBEAFE" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24">Chrome login reuse</text>
   </g>
   <g>
-    <rect x="700" y="344" width="246" height="56" rx="18" fill="#422006" fill-opacity="0.34" stroke="#F59E0B" stroke-opacity="0.42"/>
-    <text x="734" y="379" fill="#FEF3C7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24">OpenClaw ready</text>
+    <rect x="724" y="344" width="246" height="56" rx="18" fill="#422006" fill-opacity="0.34" stroke="#F59E0B" stroke-opacity="0.42"/>
+    <text x="758" y="379" fill="#FEF3C7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24">OpenClaw ready</text>
   </g>
 
-  <g filter="url(#blur)" opacity="0.32">
-    <circle cx="930" cy="290" r="110" fill="#22C55E"/>
-    <circle cx="1018" cy="246" r="80" fill="#38BDF8"/>
-    <circle cx="1036" cy="360" r="74" fill="#F59E0B"/>
-  </g>
-
-  <g>
-    <rect x="830" y="126" width="312" height="274" rx="28" fill="#06121B" fill-opacity="0.72" stroke="rgba(148,163,184,0.22)"/>
-    <rect x="862" y="160" width="248" height="22" rx="11" fill="#082F49"/>
-    <text x="882" y="176" fill="#BAE6FD" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">opencli list -f yaml</text>
-    <rect x="862" y="212" width="202" height="18" rx="9" fill="#0F766E" fill-opacity="0.32"/>
-    <rect x="862" y="246" width="224" height="18" rx="9" fill="#1D4ED8" fill-opacity="0.30"/>
-    <rect x="862" y="280" width="182" height="18" rx="9" fill="#7C2D12" fill-opacity="0.32"/>
-    <rect x="862" y="314" width="238" height="18" rx="9" fill="#14532D" fill-opacity="0.28"/>
-    <rect x="862" y="348" width="208" height="18" rx="9" fill="#3F3F46" fill-opacity="0.38"/>
+  <g filter="url(#blur)" opacity="0.24">
+    <circle cx="938" cy="304" r="96" fill="#22C55E"/>
+    <circle cx="1002" cy="244" r="70" fill="#38BDF8"/>
+    <circle cx="1030" cy="346" r="62" fill="#F59E0B"/>
   </g>
 
   <path d="M92 474H1188" stroke="url(#accent)" stroke-width="2" stroke-linecap="round" opacity="0.72"/>
