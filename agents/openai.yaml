@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenCLI"
+  short_description: "Run websites and desktop apps through OpenCLI"
+  default_prompt: "Use $opencli to inspect the local OpenCLI setup and run the right command for this site or app."
