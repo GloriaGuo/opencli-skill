@@ -2,7 +2,7 @@
 
 English | [中文](#中文说明)
 
-A Codex skill for working with [OpenCLI](https://github.com/jackwener/opencli): command discovery, browser-login reuse, desktop-app adapters, downloads, troubleshooting, and adapter-generation workflows.
+An agent skill for working with [OpenCLI](https://github.com/jackwener/opencli): command discovery, browser-login reuse, desktop-app adapters, downloads, troubleshooting, and adapter-generation workflows.
 
 Repository: [GloriaGuo/opencli-skill](https://github.com/GloriaGuo/opencli-skill)
 
@@ -16,7 +16,7 @@ OpenCLI is powerful, but it spans several different modes:
 - external CLI passthrough
 - adapter generation workflows
 
-This skill gives Codex a read-first, agent-safe operating path so it can:
+This skill gives AI coding agents a read-first, agent-safe operating path so they can:
 
 - discover the installed OpenCLI surface before guessing
 - choose the right adapter for a site or app
@@ -45,9 +45,12 @@ This skill gives Codex a read-first, agent-safe operating path so it can:
 - [references/troubleshooting.md](./references/troubleshooting.md): common failures and fixes
 - [examples/README.md](./examples/README.md): example prompts and command recipes
 - [examples/claude-code.md](./examples/claude-code.md): Claude Code installation and prompt examples
+- [examples/openclaw.md](./examples/openclaw.md): OpenClaw installation and usage examples
 - [scripts/validate_skill.py](./scripts/validate_skill.py): portable validation script for CI and local checks
 
 ## Install
+
+### Codex
 
 Clone or copy the repo into your Codex skills directory:
 
@@ -98,6 +101,36 @@ Use $opencli to inspect the local OpenCLI setup and tell me whether the Codex an
 ```
 
 Claude Code usage examples are collected in [examples/claude-code.md](./examples/claude-code.md).
+
+## Use In OpenClaw
+
+OpenClaw can load shared skills from `~/.openclaw/skills` or workspace-specific skills from `<workspace>/skills`.
+
+Shared install for all agents:
+
+```bash
+git clone git@github.com:GloriaGuo/opencli-skill.git ~/.openclaw/skills/opencli
+```
+
+Workspace-specific install:
+
+```bash
+git clone git@github.com:GloriaGuo/opencli-skill.git ./skills/opencli
+```
+
+If skill watching is enabled in OpenClaw, updates are auto-reloaded. Otherwise restart the agent session or gateway after installing.
+
+Example prompts:
+
+```text
+Use $opencli to inspect the installed OpenCLI surface and run a read-first workflow for Bilibili.
+```
+
+```text
+Use $opencli to diagnose why my browser-backed OpenCLI command is returning empty data.
+```
+
+OpenClaw-specific notes and examples are collected in [examples/openclaw.md](./examples/openclaw.md).
 
 ## Recommended OpenCLI Setup
 
@@ -160,7 +193,7 @@ python3 scripts/validate_skill.py
 
 ## 中文说明
 
-这是一个给 Codex 用的 `OpenCLI` skill，目标不是重复官方 README，而是让 agent 更稳定地完成真实任务：
+这是一个面向多种 AI agent 环境的 `OpenCLI` skill，目标不是重复官方 README，而是让 agent 更稳定地完成真实任务：
 
 - 先发现本机已安装的命令面
 - 再选择站点 / 桌面应用 / CLI passthrough / adapter generation 路径
@@ -169,11 +202,11 @@ python3 scripts/validate_skill.py
 
 ## 这个 skill 解决什么问题
 
-- 帮 Codex 判断什么时候该用 OpenCLI，而不是 browser agent 或 Playwright
-- 帮 Codex 在动手前先跑 `opencli list -f yaml`
-- 帮 Codex 对 B 站、知乎、小红书、微信公众号、Boss、Cursor、Codex 等场景选对命令
-- 帮 Codex 在安装版本和 README 不一致时，以本机实际命令面为准
-- 帮 Codex 在写操作前先做读操作，降低误操作风险
+- 帮 agent 判断什么时候该用 OpenCLI，而不是 browser agent 或 Playwright
+- 帮 agent 在动手前先跑 `opencli list -f yaml`
+- 帮 agent 对 B 站、知乎、小红书、微信公众号、Boss、Cursor、Codex 等场景选对命令
+- 帮 agent 在安装版本和 README 不一致时，以本机实际命令面为准
+- 帮 agent 在写操作前先做读操作，降低误操作风险
 
 ## 仓库内容
 
@@ -186,9 +219,12 @@ python3 scripts/validate_skill.py
 - [references/troubleshooting.md](./references/troubleshooting.md)：常见故障排查
 - [examples/README.md](./examples/README.md)：可直接照抄的 prompt 和命令示例
 - [examples/claude-code.md](./examples/claude-code.md)：Claude Code 安装与调用示例
+- [examples/openclaw.md](./examples/openclaw.md)：OpenClaw 安装与调用示例
 - [scripts/validate_skill.py](./scripts/validate_skill.py)：本地与 CI 通用的校验脚本
 
 ## 安装方式
+
+### Codex
 
 ```bash
 git clone git@github.com:GloriaGuo/opencli-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/opencli"
@@ -237,6 +273,36 @@ Use $opencli to inspect the local OpenCLI setup and tell me whether the Codex an
 ```
 
 更完整的 Claude Code 示例见 [examples/claude-code.md](./examples/claude-code.md)。
+
+## 在 OpenClaw 里怎么用
+
+OpenClaw 可以从 `~/.openclaw/skills` 读取共享 skill，也可以从当前 workspace 的 `./skills` 读取工作区级 skill。
+
+给所有 agent 共用的安装方式：
+
+```bash
+git clone git@github.com:GloriaGuo/opencli-skill.git ~/.openclaw/skills/opencli
+```
+
+只给当前 workspace 使用：
+
+```bash
+git clone git@github.com:GloriaGuo/opencli-skill.git ./skills/opencli
+```
+
+如果 OpenClaw 开启了 skills watch，修改后会自动刷新；否则安装后重启对应 agent 会话或 gateway。
+
+OpenClaw 里可以这样触发：
+
+```text
+Use $opencli to inspect the installed OpenCLI surface and run a read-first workflow for Bilibili.
+```
+
+```text
+Use $opencli to diagnose why my browser-backed OpenCLI command is returning empty data.
+```
+
+更完整的 OpenClaw 示例见 [examples/openclaw.md](./examples/openclaw.md)。
 
 ## 推荐的 OpenCLI 环境准备
 

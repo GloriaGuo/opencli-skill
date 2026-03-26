@@ -1,6 +1,6 @@
 ---
 name: opencli
-description: Use when Codex needs to install, inspect, troubleshoot, or operate a local OpenCLI setup, or when a task involves websites, Electron desktop apps, browser-login reuse, downloads, plugins, external CLI passthrough, or adapter generation through OpenCLI.
+description: Use when an AI agent needs to install, inspect, troubleshoot, or operate a local OpenCLI setup, or when a task involves websites, Electron desktop apps, browser-login reuse, downloads, plugins, external CLI passthrough, or adapter generation through OpenCLI.
 ---
 
 # OpenCLI
