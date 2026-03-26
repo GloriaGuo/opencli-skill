@@ -7,10 +7,23 @@ description: Use when Codex needs to install, inspect, troubleshoot, or operate 
 
 OpenCLI turns websites, Electron apps, and existing local CLIs into structured terminal commands. Prefer it when deterministic CLI output is more useful than ad-hoc browser automation.
 
+## Trigger Cues
+
+Load this skill when the task sounds like any of these:
+
+- "use opencli"
+- "pull data from Bilibili/Zhihu/Xiaohongshu/Weixin/Boss"
+- "reuse my Chrome login"
+- "control Cursor/Codex/Notion/ChatGPT from the terminal"
+- "download article/video/media through OpenCLI"
+- "inspect what OpenCLI supports on this machine"
+- "create or troubleshoot an OpenCLI adapter"
+
 ## Reference Files
 
 | Reference | Use for |
 | --- | --- |
+| [references/agent-playbook.md](references/agent-playbook.md) | Agent-first trigger patterns, action order, and safe defaults |
 | [references/commands.md](references/commands.md) | Common commands, category selection, and example invocations |
 | [references/china-workflows.md](references/china-workflows.md) | China-focused site templates and desktop-agent workflows |
 | [references/practical-scenarios.md](references/practical-scenarios.md) | Detailed field manual for choosing OpenCLI and executing end-to-end workflows |
@@ -28,6 +41,7 @@ OpenCLI turns websites, Electron apps, and existing local CLIs into structured t
    - New site development: use `explore`, `synthesize`, `generate`, and `cascade`.
 4. Prefer `-f json` for agent-readable output. Use `-f yaml` for human inspection, `-f table` for terminal browsing, and `-v` only when debugging.
 5. If a browser-backed command returns empty data or authorization errors, verify the Chrome login state before changing commands or code.
+6. Before any write-like action such as `post`, `reply`, `send`, `publish`, `greet`, or `follow`, do at least one read-only command first unless the user explicitly asks to skip that safety step.
 
 ## Decision Guide
 
@@ -57,4 +71,6 @@ Use `opencli explore <url> --site <name>` to inspect a site, `opencli synthesize
 - Prefer structured output over prose whenever another tool or agent will consume the result.
 - For media downloads, install `yt-dlp` when the adapter requires it.
 - When a command is likely browser-backed, assume login state matters until proven otherwise.
+- For desktop adapters, check `--help` before assuming command parity across apps or versions.
+- Treat `opencli list -f yaml` as the source of truth when the README and installed commands disagree.
 - Read [references/troubleshooting.md](references/troubleshooting.md) before concluding that an adapter is broken.
