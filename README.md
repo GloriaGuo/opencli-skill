@@ -118,7 +118,49 @@ Workspace-specific install:
 git clone git@github.com:GloriaGuo/opencli-skill.git ./skills/opencli
 ```
 
-If skill watching is enabled in OpenClaw, updates are auto-reloaded. Otherwise restart the agent session or gateway after installing.
+Config file: `~/.openclaw/openclaw.json`
+
+Minimal shared-skill watcher setup:
+
+```json5
+{
+  skills: {
+    load: {
+      watch: true,
+      watchDebounceMs: 250,
+    },
+    entries: {
+      opencli: {
+        enabled: true,
+      },
+    },
+  },
+}
+```
+
+Load the skill from an extra shared directory:
+
+```json5
+{
+  skills: {
+    load: {
+      extraDirs: [
+        "/Users/you/skill-packs",
+      ],
+      watch: true,
+      watchDebounceMs: 250,
+    },
+  },
+}
+```
+
+Notes:
+
+- `~/.openclaw/skills` is shared across agents
+- `./skills` or `<workspace>/skills` is workspace-scoped
+- `skills.load.extraDirs` is useful when you keep a central skill pack outside the default directories
+- `skills.entries.opencli.enabled: false` can disable this skill without deleting files
+- if skill watching is disabled, restart the relevant agent session or gateway after installing or updating
 
 Example prompts:
 
@@ -290,7 +332,49 @@ git clone git@github.com:GloriaGuo/opencli-skill.git ~/.openclaw/skills/opencli
 git clone git@github.com:GloriaGuo/opencli-skill.git ./skills/opencli
 ```
 
-如果 OpenClaw 开启了 skills watch，修改后会自动刷新；否则安装后重启对应 agent 会话或 gateway。
+配置文件位置：`~/.openclaw/openclaw.json`
+
+一个最小可用的共享 skill 自动刷新配置：
+
+```json5
+{
+  skills: {
+    load: {
+      watch: true,
+      watchDebounceMs: 250,
+    },
+    entries: {
+      opencli: {
+        enabled: true,
+      },
+    },
+  },
+}
+```
+
+如果你想从额外目录加载一整套 skill：
+
+```json5
+{
+  skills: {
+    load: {
+      extraDirs: [
+        "/Users/you/skill-packs",
+      ],
+      watch: true,
+      watchDebounceMs: 250,
+    },
+  },
+}
+```
+
+说明：
+
+- `~/.openclaw/skills` 适合所有 agent 共用
+- `./skills` 或 `<workspace>/skills` 适合当前 workspace 独享
+- `skills.load.extraDirs` 适合挂载你自己的集中 skill 目录
+- `skills.entries.opencli.enabled: false` 可以在不删文件的情况下禁用这个 skill
+- 如果没开 watch，安装或更新后需要重启对应 agent 会话或 gateway
 
 OpenClaw 里可以这样触发：
 
